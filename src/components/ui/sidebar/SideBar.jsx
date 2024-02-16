@@ -4,20 +4,19 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-
 import { Drawer } from'../sidebar/Drawer';
-import { mainListItems, secondaryListItems } from '../../../config/MenuItem';
 
 
 
 
-export const SideBar = ({ toggleDrawer, open}) => {
+export const SideBar = ({user, toggleDrawer, open}) => {
 
 
 
   return (
 
     <Drawer variant="permanent" open={open}>
+      <h3>{user}</h3>
           <Toolbar
             sx={{
               display: 'flex',
@@ -32,9 +31,9 @@ export const SideBar = ({ toggleDrawer, open}) => {
           </Toolbar>
           <Divider />
           <List component="nav">
-            {mainListItems}
+            lists
             <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
+            lists
           </List>
     </Drawer>
   )
