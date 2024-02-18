@@ -1,18 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import { AuthProvider } from "./providers/AuthProvider.jsx";
 import { BrowserRouter } from "react-router-dom";
-import { ProductProvider } from "./providers/ProductProvider.jsx";
+import { Provider } from "react-redux";
+import { store } from "./store/store.js";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProvider>
-      <ProductProvider>
+    <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-      </ProductProvider>
-    </AuthProvider>
+      </Provider>
   </React.StrictMode>
 );
