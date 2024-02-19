@@ -3,9 +3,11 @@ import { GeneralLayout } from "../layouts/GeneralLayout";
 import { Route, Routes } from "react-router-dom";
 import { PublicRoutes } from "./PublicRoutes";
 import { PrivateRoutes } from "./PrivateRoutes";
+import { useSelector } from "react-redux";
 
 function AppRoutes() {
-  const isLogged = false
+  
+  const { isLogged, user} = useSelector((state)=> state.auth )
 
   return (
     <>
@@ -23,7 +25,7 @@ function AppRoutes() {
           path="/*"
           element={
             <PrivateRoutes isLogged={isLogged}>
-              <GeneralLayout />
+              <GeneralLayout user={user} />
             </PrivateRoutes>
           }
         />

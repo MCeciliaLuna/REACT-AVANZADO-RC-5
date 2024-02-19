@@ -25,7 +25,8 @@ export const authSlice = createSlice({
         state.token = initialValueAuth.token,
         state.isLogged = initialValueAuth.isLogged,
         state.user = initialValueAuth.user
-  }}
+  }
+}
 });
 
 export const { login, logout } = authSlice.actions;

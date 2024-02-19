@@ -4,13 +4,14 @@ import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import MenuIcon from "@mui/icons-material/Menu";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import LogoutIcon from '@mui/icons-material/Logout';
+import LogoutIcon from "@mui/icons-material/Logout";
 import { AppBar } from "./AppBar";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../../store/slices/auth/authSlice";
 
-
-
-
-export const NavBar = ({user, logout}) => {
+export const NavBar = () => {
+  const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
   return (
     <AppBar position="absolute" open={open}>
@@ -37,17 +38,17 @@ export const NavBar = ({user, logout}) => {
           noWrap
           sx={{ flexGrow: 1 }}
         >
-         <b>
-          {user}
-          </b>
+          <b>{user.username}</b>
         </Typography>
 
-       
-          <Typography variant="body1"></Typography>
-          <IconButton onClick={logout} color="inherit" style={{ marginLeft:10}}>
-            <LogoutIcon />
-          </IconButton>
-       
+        <Typography variant="body1"></Typography>
+        <IconButton
+          onClick={() => dispatch(logout())}
+          color="inherit"
+          style={{ marginLeft: 10 }}
+        >
+          <LogoutIcon />
+        </IconButton>
 
         <IconButton color="inherit">
           <Badge badgeContent={4} color="secondary">

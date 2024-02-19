@@ -2,26 +2,17 @@ import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import { FooterLayout, SideBar } from "../components/ui";
 import { NavBar } from "../components/ui";
-import { AuthContext } from "../contexts/AuthContext";
-import { useContext } from "react";
 import { Box } from "@mui/material";
 import styles from "../../styles.module.css";
 import ProductsList from "../components/ui/productsSection/ProductsList";
 
 export const ProductsPage = () => {
-  const { state, logout } = useContext(AuthContext);
-  
-  
-
-  console.log(state);
-  return (
+    return (
     <>
       <NavBar
         open={open}
-        user={`${state.user.firstName} ${state.user.lastName}`}
-        logout={logout}
-      />
-      <SideBar open={open} user={state.user.username} />
+        />
+      <SideBar open={open} />
 
       <Box
         component="main"
@@ -38,7 +29,7 @@ export const ProductsPage = () => {
         <Toolbar />
         <h2 className={styles.title}>Productos:</h2>
         <div className={styles.productsSection}>
-        <ProductsList />
+        {/* <ProductsList /> */}
         </div>
         <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
           <FooterLayout sx={{ pt: 4 }} />
