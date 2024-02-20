@@ -13,13 +13,10 @@ export const authSlice = createSlice({
   name: "auth",
   initialState: initialValueAuth,
   reducers: {
-    login: (state) => {
-        state.token = 'Cecilia1234',
+    login: (state, action) => {
+        state.token = action.payload.token,
         state.isLogged = true,
-        state.user = {
-            username: 'mcecilialuna',
-            password: 'Cecilia1234'
-        }
+        state.user = action.payload.user
     },
     logout: (state) => {
         state.token = initialValueAuth.token,

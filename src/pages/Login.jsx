@@ -8,13 +8,25 @@ import { FormHelperText } from "@mui/material";
 import styles from "../../styles.module.css";
 import { useDispatch } from "react-redux";
 import { login } from "../store/slices/auth/authSlice";
+import { useForm } from "../hooks/useForm";
 
 export const Login = () => {
   const dispatch = useDispatch();
+  const { formData, onChangeInput } = useForm();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login());
+    console.log(formData);
+    dispatch(
+      login({
+        user: {
+          username: formData.username,
+          password: formData.password,
+          email: "lunama.cecilia@gmail.com"
+        },
+        token: "PASS AUTHORIZED 😎👍"
+      })
+    );
   };
 
   return (
@@ -35,6 +47,7 @@ export const Login = () => {
           name="username"
           autoComplete="username"
           autoFocus
+          onChange={onChangeInput}
         />
         <TextField
           margin="normal"
@@ -45,6 +58,7 @@ export const Login = () => {
           type="password"
           id="password"
           autoComplete="current-password"
+          onChange={onChangeInput}
         />
 
         <FormHelperText
