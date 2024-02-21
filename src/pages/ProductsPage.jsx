@@ -4,7 +4,7 @@ import { FooterLayout, SideBar } from "../components/ui";
 import { NavBar } from "../components/ui";
 import { Box } from "@mui/material";
 import styles from "../../styles.module.css";
-import ProductsList from "../components/ui/productsSection/ProductsList";
+// import ProductsList from "../components/ui/productsSection/ProductsList";
 
 export const ProductsPage = () => {
     return (

@@ -7,8 +7,8 @@ import Typography from "@mui/material/Typography";
 import { FormHelperText } from "@mui/material";
 import styles from "../../styles.module.css";
 import { useDispatch } from "react-redux";
-import { login } from "../store/slices/auth/authSlice";
 import { useForm } from "../hooks/useForm";
+import { getLogin } from "../store/slices/auth/thunks";
 
 export const Login = () => {
   const dispatch = useDispatch();
@@ -16,17 +16,7 @@ export const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-    dispatch(
-      login({
-        user: {
-          username: formData.username,
-          password: formData.password,
-          email: "lunama.cecilia@gmail.com"
-        },
-        token: "PASS AUTHORIZED 😎👍"
-      })
-    );
+    dispatch(getLogin(formData.username, formData.password));
   };
 
   return (

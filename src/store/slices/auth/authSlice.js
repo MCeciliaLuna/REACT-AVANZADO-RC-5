@@ -14,16 +14,19 @@ export const authSlice = createSlice({
   initialState: initialValueAuth,
   reducers: {
     login: (state, action) => {
-        state.token = action.payload.token,
-        state.isLogged = true,
-        state.user = action.payload.user
+      (state.token = action.payload.token),
+        (state.isLogged = true),
+        (state.user = action.payload.user);
     },
     logout: (state) => {
-        state.token = initialValueAuth.token,
-        state.isLogged = initialValueAuth.isLogged,
-        state.user = initialValueAuth.user
-  }
-}
+      (state.token = initialValueAuth.token),
+        (state.isLogged = initialValueAuth.isLogged),
+        (state.user = initialValueAuth.user);
+    },
+    // error: (state, action) => {
+    //   state.type = state.type = action.payload.type;
+    // },
+  },
 });
 
 export const { login, logout } = authSlice.actions;
