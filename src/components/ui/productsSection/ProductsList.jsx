@@ -1,6 +1,4 @@
-import { useContext, useEffect } from 'react';
-import { ProductContext } from '../../../contexts/ProductContext';
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid } from "@mui/x-data-grid";
 
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
@@ -12,22 +10,12 @@ const columns = [
   { field: "actions", headerName: "Acciones", width: 130 },
 ];
 
-
-
-
 export default function ProductsList() {
-
-    const { state, getAllProducts} = useContext(ProductContext)
-  
-  useEffect(() => {
-    getAllProducts()
-  }, [])
-  
   return (
     <div style={{ height: 400, width: "100%" }}>
       <DataGrid
-      loading={state.isLoading}
-        rows={state.products}
+        // loading={state.isLoading}
+        rows={[]}
         columns={columns}
         initialState={{
           pagination: {

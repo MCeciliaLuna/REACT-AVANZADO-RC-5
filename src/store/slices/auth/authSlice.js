@@ -22,7 +22,8 @@ export const authSlice = createSlice({
       (state.token = initialValueAuth.token),
         (state.isLogged = initialValueAuth.isLogged),
         (state.user = initialValueAuth.user);
-    },
+      localStorage.removeItem("token");
+      },
     // error: (state, action) => {
     //   state.type = state.type = action.payload.type;
     // },
