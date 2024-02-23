@@ -7,6 +7,10 @@ const initialValueAuth = {
     username: null,
     password: null,
   },
+  errorMessage:{
+    msg:null,
+    type:null
+  },
 };
 
 export const authSlice = createSlice({
@@ -17,17 +21,20 @@ export const authSlice = createSlice({
       (state.token = action.payload.token),
         (state.isLogged = true),
         (state.user = action.payload.user);
+        (state.errorMessage = initialValueAuth.errorMessage);
     },
     logout: (state) => {
       (state.token = initialValueAuth.token),
         (state.isLogged = initialValueAuth.isLogged),
         (state.user = initialValueAuth.user);
+        (state.errorMessage = initialValueAuth.errorMessage);
       localStorage.removeItem("token");
       },
-    // error: (state, action) => {
-    //   state.type = state.type = action.payload.type;
-    // },
+
+    errorMessage: (state, action) => {
+      state.errorMessage = action.payload.errorMsg;
+    },
   },
 });
 
-export const { login, logout } = authSlice.actions;
+export const { login, logout, errorMessage } = authSlice.actions;

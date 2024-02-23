@@ -4,15 +4,16 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
-import { FormHelperText } from "@mui/material";
+import { Alert, FormHelperText } from "@mui/material";
 import styles from "../../styles.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "../hooks/useForm";
 import { getLogin } from "../store/slices/auth/thunks";
 
 export const Login = () => {
   const dispatch = useDispatch();
   const { formData, onChangeInput } = useForm();
+  const { errorMessage } = useSelector((state) => state.auth)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,7 +29,13 @@ export const Login = () => {
         Sign in
       </Typography>
       <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        {
+          errorMessage.msg && (
+            <Alert severity="error">{`${errorMessage.msg} ⛔ ERROR ${errorMessage.type}`}</Alert>
+          )
+        }
         <TextField
+        error={errorMessage.msg ? true : false}
           margin="normal"
           required
           fullWidth
@@ -40,6 +47,7 @@ export const Login = () => {
           onChange={onChangeInput}
         />
         <TextField
+        error={errorMessage.msg ? true : false}
           margin="normal"
           required
           fullWidth
@@ -66,6 +74,7 @@ export const Login = () => {
         </Button>
       </Box>
       <div>
+        <p>{errorMessage.msg ? "Error" : false}</p>
         <hr />
         <p>
           username: kminchelle <br />
