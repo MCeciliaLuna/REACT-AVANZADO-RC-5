@@ -31,7 +31,7 @@ export const Login = () => {
       <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
         {
           errorMessage.msg && (
-            <Alert severity="error">{`${errorMessage.msg} ⛔ ERROR ${errorMessage.type}`}</Alert>
+            <Alert severity="error">{`ERROR ${errorMessage.type} ⛔`}</Alert>
           )
         }
         <TextField
@@ -45,7 +45,7 @@ export const Login = () => {
           autoComplete="username"
           autoFocus
           onChange={onChangeInput}
-        />
+          />
         <TextField
         error={errorMessage.msg ? true : false}
           margin="normal"
@@ -57,6 +57,7 @@ export const Login = () => {
           id="password"
           autoComplete="current-password"
           onChange={onChangeInput}
+          helperText={errorMessage.msg ? errorMessage.msg : ""}
         />
 
         <FormHelperText
@@ -73,8 +74,6 @@ export const Login = () => {
           INGRESAR
         </Button>
       </Box>
-      <div>
-       </div>
     </div>
   );
 };
