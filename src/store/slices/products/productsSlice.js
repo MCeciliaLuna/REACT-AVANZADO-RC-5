@@ -1,16 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialValues = {
+    products : [],
+    isLoading: true
+};
 
-}
-export const templateSlice = createSlice({
-name: 'template',
-initialState: initialValues,
-reducers: {
-type: (state, action) => {
-(state.value = action.payload.value)
-}
-}
-})
+export const productsSlice = createSlice({
+  name: "products",
+  initialState: initialValues,
+  reducers: {
+    setProducts: (state, action) => {
+      state.products = action.payload.products;
+      state.isLoading = false
+    },
+  },
+});
 
-export const { type } = templateSlice.actions
+export const { setProducts } = productsSlice.actions;

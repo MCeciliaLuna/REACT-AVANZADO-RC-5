@@ -8,6 +8,8 @@ import ProductsList from "../components/ui/productsSection/ProductsList";
 
 export const ProductsPage = () => {
   
+  
+  
   return (
     <>
       <NavBar open={open} />

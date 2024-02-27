@@ -1,5 +1,5 @@
 import { errorMessage, login, logout } from "./authSlice";
-import { axiosDash } from "../../../config/dashAxios";
+import { axiosDash } from "../../../config/axiosDash";
 
 export const getLogin = (username, password) => {
   return async (dispatch, getState) => {
