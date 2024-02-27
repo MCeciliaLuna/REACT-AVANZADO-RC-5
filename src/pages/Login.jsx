@@ -74,14 +74,7 @@ export const Login = () => {
         </Button>
       </Box>
       <div>
-        <p>{errorMessage.msg ? "Error" : false}</p>
-        <hr />
-        <p>
-          username: kminchelle <br />
-          password: 0lelplR
-        </p>
-        <hr />
-      </div>
+       </div>
     </div>
   );
 };
