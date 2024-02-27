@@ -7,6 +7,7 @@ import styles from "../../styles.module.css";
 import ProductsList from "../components/ui/productsSection/ProductsList";
 
 export const ProductsPage = () => {
+  
   return (
     <>
       <NavBar open={open} />
