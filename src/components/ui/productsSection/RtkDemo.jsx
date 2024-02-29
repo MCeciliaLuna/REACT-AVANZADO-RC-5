@@ -1,4 +1,4 @@
-export const RTKDemo = () => {
+export const RtkDemo = () => {
   return (
     <>
       <h1> RTK PRODUCTS</h1>
