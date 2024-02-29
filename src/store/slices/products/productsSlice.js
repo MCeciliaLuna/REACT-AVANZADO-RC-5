@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialValues = {
-    products : [],
-    isLoading: true
+  errorMessage: null,
+  isLoading: true,
+  products: [],
 };
 
 export const productsSlice = createSlice({
@@ -11,9 +12,12 @@ export const productsSlice = createSlice({
   reducers: {
     setProducts: (state, action) => {
       state.products = action.payload.products;
-      state.isLoading = false
+      state.isLoading = false;
+    },
+    errorMessage: (state, action) => {
+      state.errorMessage = action.payload.errorMsg;
     },
   },
 });
 
-export const { setProducts } = productsSlice.actions;
+export const { setProducts, errorMessage } = productsSlice.actions;

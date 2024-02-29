@@ -1,9 +1,11 @@
 import { axiosDash } from "../../../config/axiosDash";
-import { setProducts } from "./productsSlice";
+import { setProducts, errorMessage} from "./productsSlice";
 
 export const getProducts = () => {
   return async (dispatch, getState) => {
-    const { data } = await axiosDash("/products");
+
+    try {
+      const { data } = await axiosDash("/products");
     const { products } = data;
 
     dispatch(
@@ -11,5 +13,16 @@ export const getProducts = () => {
         products
       })
     );
-  };
+    } catch (error) {
+      console.error(error)
+      dispatch(errorMessage({
+        errorMsg:{
+          msg: error.response.data,
+          type: error.response.status
+        }
+      }))
+    }
+
+    
 };
+}

@@ -5,10 +5,10 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { Alert, FormHelperText } from "@mui/material";
-import styles from "../../styles.module.css";
+import styles from "../../../styles.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useForm } from "../hooks/useForm";
-import { getLogin } from "../store/slices/auth/thunks";
+import { useForm } from "../../hooks/useForm";
+import { getLogin } from "../../store/slices/auth/thunks";
 
 export const Login = () => {
   const dispatch = useDispatch();

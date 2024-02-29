@@ -1,10 +1,10 @@
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
-import { FooterLayout, SideBar } from "../components/ui";
-import { NavBar } from "../components/ui";
+import { FooterLayout, SideBar } from "../../components/ui";
+import { NavBar } from "../../components/ui";
 import { Box } from "@mui/material";
-import styles from "../../styles.module.css";
-import ProductsList from "../components/ui/productsSection/ProductsList";
+import styles from "../../../styles.module.css";
+import ProductsList from "../../components/ui/productsSection/ProductsList";
 
 export const ProductsPage = () => {
   
