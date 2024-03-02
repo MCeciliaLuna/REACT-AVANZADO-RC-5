@@ -4,7 +4,7 @@ import { FooterLayout, SideBar } from "../../components/ui";
 import { NavBar } from "../../components/ui";
 import { Box } from "@mui/material";
 import styles from "../../../styles.module.css";
-import ProductsList from "../../components/ui/productsSection/ProductsList";
+// import ProductsList from "../../components/ui/productsSection/ProductsList";
 import { RtkDemo } from "../../components/ui/productsSection/RtkDemo";
 
 export const ProductsPage = () => {
@@ -31,7 +31,7 @@ export const ProductsPage = () => {
         <Toolbar />
         <h2 className={styles.title}>Productos:</h2>
         <div className={styles.productsSection}>
-          <ProductsList />
+          {/* <ProductsList /> */}
           <RtkDemo />
         </div>
         <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>

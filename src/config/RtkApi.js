@@ -9,10 +9,10 @@ export const rtkApi = createApi({
     getProducts: builder.query({
       query: () => "/products"
     }),
-    getProduct: builder.query({
+    getOneProduct: builder.query({
         query: (id) => `/product/${id}`
     })
   })
 });
 
-export const { useGetProductsQuery, useGetProductQuery } = rtkApi
+export const { useGetProductsQuery, useGetOneProductQuery } = rtkApi

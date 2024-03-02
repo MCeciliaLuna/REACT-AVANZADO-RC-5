@@ -10,5 +10,5 @@ export const store = configureStore({
     
     [rtkApi.reducerPath]: rtkApi.reducer
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(rtkApi.middleware)
+  middleware: (buildGetDefaultMiddleware)=> buildGetDefaultMiddleware().concat(rtkApi.middleware)
 });
